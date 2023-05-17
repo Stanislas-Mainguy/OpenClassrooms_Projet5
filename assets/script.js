@@ -17,5 +17,6 @@ const slides = [
 	}
 ]
 
-const bannerImg = document.querySelector('banner-img');
-const 
+const arrowLeft = document.querySelector("#arrow_left").addEventListener('click', function(){alert("salut")});
+const arrowRight = document.querySelector("#arrow_right").addEventListener('click', function(){alert("bye")});
+
