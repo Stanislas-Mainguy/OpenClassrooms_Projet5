@@ -17,6 +17,20 @@ const slides = [
 	}
 ]
 
-const arrowLeft = document.querySelector("#arrow_left").addEventListener('click', function(){alert("salut")});
-const arrowRight = document.querySelector("#arrow_right").addEventListener('click', function(){alert("bye")});
+let actualSlidePosition = 0;
+const allArrow = document.querySelectorAll(".arrow");
+const dots = document.querySelector(".dots");
+const img = document.querySelector(".banner-img");
+const tagLine = document.querySelector(".tagline");
 
+// faire des points //
+
+// Mettre le point selectionné //
+
+// changer d'image au clic //
+
+//changer le point actif au clic //
+
+// changer le texte au clic //
+
+// faire une boucle infini pour le clic //
