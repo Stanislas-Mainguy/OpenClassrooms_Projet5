@@ -23,6 +23,8 @@ const dots = document.querySelector(".dots");
 const img = document.querySelector(".banner-img");
 const tagLine = document.querySelector(".tagline");
 
+// création flèche avec eventListener //
+
 // faire des points //
 
 // Mettre le point selectionné //
