@@ -24,9 +24,28 @@ const img = document.querySelector(".banner-img");
 const tagLine = document.querySelector(".tagline");
 
 // création flèche avec eventListener //
-
+allArrow.forEach(function(arrow) {
+	arrow.addEventListener('click', function() {
+		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
+		if (actualSlidePosition < 0) {
+			actualSlidePosition = slides.length -1;
+		}
+		if (actualSlidePosition > slides.length -1) {
+			actualSlidePosition = 0;
+		}
+	})
+})
 // faire des points //
+let newDot = document.createElement("span");
+newDot.classList.add("dot");
+newDot.classList.add("dot_selected");
+dots.appendChild(newDot);
 
+for (let i = 1; i < slides.length; i++) {
+	let newDot = document.createElement("span");
+	newDot.classList.add("dot");
+	dots.appendChild(newDot);
+}
 // Mettre le point selectionné //
 
 // changer d'image au clic //
