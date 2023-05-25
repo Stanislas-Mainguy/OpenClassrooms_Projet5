@@ -22,20 +22,9 @@ const allArrow = document.querySelectorAll(".arrow");
 const dots = document.querySelector(".dots");
 const img = document.querySelector(".banner-img");
 const tagLine = document.querySelector(".tagline");
+const dotListe = document.querySelectorAll(".dot");
 
-// création flèche avec eventListener //
-allArrow.forEach(function(arrow) {
-	arrow.addEventListener('click', function() {
-		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
-		if (actualSlidePosition < 0) {
-			actualSlidePosition = slides.length -1;
-		}
-		if (actualSlidePosition > slides.length -1) {
-			actualSlidePosition = 0;
-		}
-	})
-})
-// faire des points //
+// Création de dot //
 let newDot = document.createElement("span");
 newDot.classList.add("dot");
 newDot.classList.add("dot_selected");
@@ -46,12 +35,25 @@ for (let i = 1; i < slides.length; i++) {
 	newDot.classList.add("dot");
 	dots.appendChild(newDot);
 }
-// Mettre le point selectionné //
 
-// changer d'image au clic //
+// création flèche avec eventListener //
+allArrow.forEach(function(arrow) {
+	arrow.addEventListener('click', function() {
+		dotListe[actualSlidePosition].classList.remove("dot_selected");
+		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
+		if (actualSlidePosition < 0) {
+			actualSlidePosition = slides.length -1;
+		}
+		if (actualSlidePosition > slides.length -1) {
+			actualSlidePosition = 0;
+		}
+		changeSlide();
+		dotListe[actualSlidePosition].classList.add("dot_selected");
+	})
+})
 
-//changer le point actif au clic //
-
-// changer le texte au clic //
-
-// faire une boucle infini pour le clic //
+// Changement d'image et de tagline //
+function changeSlide() {
+	img.src = ".assets/images/slideshow/" + slides[actualSlidePosition].img;
+	tagLine.innerHTML = slides[actualSlidePosition].tagLine;
+}
