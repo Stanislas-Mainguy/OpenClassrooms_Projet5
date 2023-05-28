@@ -22,6 +22,13 @@ const allArrow = document.querySelectorAll(".arrow");
 const dots = document.querySelector(".dots");
 const img = document.querySelector("#change_picture");
 const tagLine = document.querySelector("#change_tagline");
+const dot = document.querySelectorAll(".dot");
+
+// Changement d'image et de tagline //
+function changeSlide() {
+	img.src = "./assets/images/slideshow/" + slides[actualSlidePosition].image;
+	tagLine.innerHTML = slides[actualSlidePosition].tagLine;
+}
 
 // Création de dot //
 let newDot = document.createElement("span");
@@ -38,9 +45,8 @@ for (let i = 1; i < slides.length; i++) {
 // création flèche avec eventListener //
 allArrow.forEach(function(arrow) {
 	arrow.addEventListener('click', function() {
-		
+		dot[actualSlidePosition].classList.remove("dot_selected");
 		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
-		console.log(actualSlidePosition);
 		if (actualSlidePosition < 0) {
 			actualSlidePosition = slides.length -1;
 		}
@@ -48,14 +54,6 @@ allArrow.forEach(function(arrow) {
 			actualSlidePosition = 0;
 		}
 		changeSlide();
-		dots[actualSlidePosition].classList.add("dot_selected");
+		dot[actualSlidePosition].classList.add("dot_selected");
 	})
-})
-
-// Changement d'image et de tagline //
-function changeSlide() {
-	img.src = "./assets/images/slideshow/" + slides[actualSlidePosition].image;
-	tagLine.innerHTML = slides[actualSlidePosition].tagLine;
-}
-
-// dots[actualSlidePosition].classList.remove("dot_selected"); //
+});
