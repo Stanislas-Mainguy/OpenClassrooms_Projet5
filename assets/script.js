@@ -20,9 +20,8 @@ const slides = [
 let actualSlidePosition = 0;
 const allArrow = document.querySelectorAll(".arrow");
 const dots = document.querySelector(".dots");
-const img = document.querySelector(".banner-img");
-const tagLine = document.querySelector(".tagline");
-const dotListe = document.querySelectorAll(".dot");
+const img = document.querySelector("#change_picture");
+const tagLine = document.querySelector("#change_tagline");
 
 // Création de dot //
 let newDot = document.createElement("span");
@@ -41,6 +40,7 @@ allArrow.forEach(function(arrow) {
 	arrow.addEventListener('click', function() {
 		dotListe[actualSlidePosition].classList.remove("dot_selected");
 		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
+		console.log(actualSlidePosition);
 		if (actualSlidePosition < 0) {
 			actualSlidePosition = slides.length -1;
 		}
@@ -54,6 +54,6 @@ allArrow.forEach(function(arrow) {
 
 // Changement d'image et de tagline //
 function changeSlide() {
-	img.src = ".assets/images/slideshow/" + slides[actualSlidePosition].img;
+	img.src = "./assets/images/slideshow/" + slides[actualSlidePosition].image;
 	tagLine.innerHTML = slides[actualSlidePosition].tagLine;
 }
