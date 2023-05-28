@@ -38,7 +38,7 @@ for (let i = 1; i < slides.length; i++) {
 // création flèche avec eventListener //
 allArrow.forEach(function(arrow) {
 	arrow.addEventListener('click', function() {
-		dotListe[actualSlidePosition].classList.remove("dot_selected");
+		
 		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
 		console.log(actualSlidePosition);
 		if (actualSlidePosition < 0) {
@@ -48,7 +48,7 @@ allArrow.forEach(function(arrow) {
 			actualSlidePosition = 0;
 		}
 		changeSlide();
-		dotListe[actualSlidePosition].classList.add("dot_selected");
+		dots[actualSlidePosition].classList.add("dot_selected");
 	})
 })
 
@@ -57,3 +57,5 @@ function changeSlide() {
 	img.src = "./assets/images/slideshow/" + slides[actualSlidePosition].image;
 	tagLine.innerHTML = slides[actualSlidePosition].tagLine;
 }
+
+// dots[actualSlidePosition].classList.remove("dot_selected"); //
