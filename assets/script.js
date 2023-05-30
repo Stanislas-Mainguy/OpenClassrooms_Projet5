@@ -18,7 +18,6 @@ const slides = [
 ]
 
 let actualSlidePosition = 0;
-const allArrow = document.querySelectorAll(".arrow");
 const dots = document.querySelector(".dots");
 const img = document.querySelector("#change_picture");
 const tagLine = document.querySelector("#change_tagline");
