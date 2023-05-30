@@ -22,7 +22,7 @@ const allArrow = document.querySelectorAll(".arrow");
 const dots = document.querySelector(".dots");
 const img = document.querySelector("#change_picture");
 const tagLine = document.querySelector("#change_tagline");
-const dot = document.querySelectorAll(".dot");
+
 
 // Changement d'image et de tagline //
 function changeSlide() {
@@ -42,6 +42,7 @@ for (let i = 1; i < slides.length; i++) {
 	dots.appendChild(newDot);
 }
 
+const dot = document.querySelectorAll(".dot");
 // création flèche avec eventListener //
 allArrow.forEach(function(arrow) {
 	arrow.addEventListener('click', function() {
