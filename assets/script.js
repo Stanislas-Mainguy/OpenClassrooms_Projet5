@@ -18,12 +18,11 @@ const slides = [
 ]
 
 let actualSlidePosition = 0;
+const allArrow = document.querySelectorAll(".arrow");
 const dots = document.querySelector(".dots");
 const img = document.querySelector("#change_picture");
 const tagLine = document.querySelector("#change_tagline");
 const dot = document.querySelectorAll(".dot");
-const arrowRight = document.querySelector(".arrow_right");
-const arrowLeft = document.querySelector(".arrow_left");
 
 // Changement d'image et de tagline //
 function changeSlide() {
@@ -44,30 +43,17 @@ for (let i = 1; i < slides.length; i++) {
 }
 
 // création flèche avec eventListener //
-arrowLeft.addEventListener('click', function() {
-	dot[actualSlidePosition].classList.remove("dot_selected");
-	actualSlidePosition = actualSlidePosition + arrowLeft;
-	if (actualSlidePosition < 0) {
-		actualSlidePosition = slides.length -1;
-	}
-	if (actualSlidePosition > slides.length -1) {
-		actualSlidePosition = 0;
-	}
-	changeSlide();
-	dot[actualSlidePosition].classList.add("dot_selected");
-	}
-);
-
-arrowRight.addEventListener('click', function() {
-	dot[actualSlidePosition].classList.remove("dot_selected");
-	actualSlidePosition = actualSlidePosition + arrowRight;
-	if (actualSlidePosition < 0) {
-		actualSlidePosition = slides.length -1;
-	}
-	if (actualSlidePosition > slides.length -1) {
-		actualSlidePosition = 0;
-	}
-	changeSlide();
-	dot[actualSlidePosition].classList.add("dot_selected");
-	}
-);
+allArrow.forEach(function(arrow) {
+	arrow.addEventListener('click', function() {
+		dot[actualSlidePosition].classList.remove("dot_selected");
+		actualSlidePosition = actualSlidePosition + parseInt(this.dataset.direction);
+		if (actualSlidePosition < 0) {
+			actualSlidePosition = slides.length -1;
+		}
+		if (actualSlidePosition > slides.length -1) {
+			actualSlidePosition = 0;
+		}
+		changeSlide();
+		dot[actualSlidePosition].classList.add("dot_selected");
+	})
+});
