@@ -43,6 +43,7 @@ for (let i = 1; i < slides.length; i++) {
 }
 
 const dot = document.querySelectorAll(".dot");
+
 // création flèche avec eventListener //
 allArrow.forEach(function(arrow) {
 	arrow.addEventListener('click', function() {
